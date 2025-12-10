@@ -115,7 +115,7 @@ if str(modulos_dir) not in sys.path:
 #from Modulos import AzureLogin
 from Modulos import ConectionSupaBase
 ###################################
-import Modulos.Minio.examples.meu_minio as meu_minio
+import Modulos.Minio.examples.MinIO as meu_minio
 
 #from Modulos.Minio.examples.meu_minio import read_file, listar_anexos, manager  # ajuste o caminho se necessário
 # 🔗 Conexão com o Supabase
