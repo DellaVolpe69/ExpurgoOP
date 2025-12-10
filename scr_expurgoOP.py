@@ -664,7 +664,7 @@ elif st.session_state.pagina == "Editar":
             for nome_anexo in anexos:
                 st.write("➡️", nome_anexo)
 
-                data = manager.client.get_object("teste", nome_anexo).read()
+                data = meu_minio.manager.client.get_object("teste", nome_anexo).read()
 
                 st.download_button(
                     label="Baixar",
