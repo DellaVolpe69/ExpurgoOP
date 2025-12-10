@@ -115,7 +115,7 @@ if str(modulos_dir) not in sys.path:
 #from Modulos import AzureLogin
 from Modulos import ConectionSupaBase
 ###################################
-from Modulos.Minio.examples.MinIO import read_file, listar_anexos, manager  # ajuste o caminho se necessário
+from Modulos.Minio.examples.meu_minio import read_file, listar_anexos, manager  # ajuste o caminho se necessário
 # 🔗 Conexão com o Supabase
 supabase = ConectionSupaBase.conexao()
 
@@ -429,7 +429,7 @@ if st.session_state.pagina == "CadastrarManual":
                             temp_path = tmp.name  # caminho do arquivo salvo
 
                         # Enviar ao MinIO
-                        MinIO.upload(
+                        meu_minio.upload(
                             object_name=nome_minio,
                             bucket_name="teste",
                             sample_file=temp_path
@@ -540,7 +540,7 @@ if st.session_state.pagina == "CadastrarEmMassa":
                                 temp_path = tmp.name
 
                             # Upload
-                            MinIO.upload(
+                            meu_minio.upload(
                                 object_name=nome_minio,
                                 bucket_name="teste",
                                 sample_file=temp_path
@@ -654,7 +654,7 @@ elif st.session_state.pagina == "Editar":
 
         registro = df[df["ID"] == id_registro].iloc[0]
         
-        anexos = MinIO.listar_anexos("teste", id_registro)
+        anexos = meu_minio.listar_anexos("teste", id_registro)
         
         st.subheader("📎 Anexos deste registro")
 
