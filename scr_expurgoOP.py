@@ -545,7 +545,7 @@ if st.session_state.pagina == "CadastrarEmMassa":
                             meu_minio.upload(
                                 object_name=nome_minio,
                                 bucket_name="teste",
-                                sample_file=temp_path
+                                file_path=temp_path
                             )
 
                             os.remove(temp_path)  # remover arquivo temporário                   
