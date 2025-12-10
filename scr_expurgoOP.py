@@ -434,7 +434,7 @@ if st.session_state.pagina == "CadastrarManual":
                         meu_minio.upload(
                             object_name=nome_minio,
                             bucket_name="teste",
-                            sample_file=temp_path
+                            file_path=temp_path
                         )
 
                         anexos_nomes.append(nome_minio)
