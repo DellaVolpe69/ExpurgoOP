@@ -19,8 +19,6 @@ from io import BytesIO
 
 import sys
 
-from Modulos.Minio.examples.MinIO import read_file, listar_anexos, manager  # ajuste o caminho se necessário
-
 # --- LINK DIRETO DA IMAGEM NO GITHUB ---
 url_imagem = "https://raw.githubusercontent.com/DellaVolpe69/Images/main/AppBackground02.png"
 url_logo = "https://raw.githubusercontent.com/DellaVolpe69/Images/main/DellaVolpeLogoBranco.png"
@@ -117,7 +115,7 @@ if str(modulos_dir) not in sys.path:
 #from Modulos import AzureLogin
 from Modulos import ConectionSupaBase
 ###################################
-
+from Modulos.Minio.examples.MinIO import read_file, listar_anexos, manager  # ajuste o caminho se necessário
 # 🔗 Conexão com o Supabase
 supabase = ConectionSupaBase.conexao()
 
