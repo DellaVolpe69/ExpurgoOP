@@ -110,7 +110,7 @@ if str(modulos_dir) not in sys.path:
     sys.path.insert(0, str(modulos_dir))
 
 # Agora importa o módulo normalmente
-#from Modulos import AzureLogin
+from Modulos import AzureLogin
 from Modulos import ConectionSupaBase
 ###################################
 import Modulos.Minio.examples.MinIO as meu_minio
