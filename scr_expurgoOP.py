@@ -436,8 +436,8 @@ if st.session_state.pagina == "CadastrarManual":
 
                         # Enviar ao MinIO
                         meu_minio.upload(
-                            object_name=nome_minio,
-                            bucket_name="formularios/ExpurgosOP",
+                            object_name="ExpurgosOP/"+ nome_minio,
+                            bucket_name="formularios",
                             file_path=temp_path
                         )
 
