@@ -111,6 +111,7 @@ if str(modulos_dir) not in sys.path:
 
 # Agora importa o módulo normalmente
 from Modulos import AzureLogin
+
 from Modulos import ConectionSupaBase
 ###################################
 import Modulos.Minio.examples.MinIO as meu_minio
@@ -436,7 +437,7 @@ if st.session_state.pagina == "CadastrarManual":
                         # Enviar ao MinIO
                         meu_minio.upload(
                             object_name=nome_minio,
-                            bucket_name="teste",
+                            bucket_name="formularios/ExpurgosOP",
                             file_path=temp_path
                         )
 
@@ -527,7 +528,7 @@ if st.session_state.pagina == "CadastrarEmMassa":
                 elif not pd.api.types.is_numeric_dtype(df_excel["Numero do documento"]):
                     st.error("⚠️ O campo Numero do documento possui caracteres invalidos. Preencha apenas com números, antes de enviar.")
                 else:                       
-                    res = inserir_registro_em_massa(df_excel, tipo_massa)
+                    res = inserir_registro_em_massa(df_excel, tipo_massa, usuario=st.session_state.get("user_name", "desconhecido"))
 
                     # Lista de IDs retornados
                     ids_criados = [item["ID"] for item in res.data]
