@@ -360,7 +360,7 @@ if st.session_state.pagina == "CadastrarManual":
     "</h1>",
     unsafe_allow_html=True
 )
-    st.write("👤 Usuário logado:", st.session_state.get("user_name"))
+    #st.write("👤 Usuário logado:", st.session_state.get("user_name"))
 
     ############################################
 
