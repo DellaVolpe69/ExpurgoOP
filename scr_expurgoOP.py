@@ -240,7 +240,8 @@ def inserir_registro_manual(
     numero,
     tipo,
     justificativa,
-    data_selecionada
+    data_selecionada,
+    usuario
 ):
 
     # -----------------------------
@@ -250,12 +251,13 @@ def inserir_registro_manual(
         "NUMERO_DOC": numero,
         "TIPO_DOC": tipo,
         "JUSTIFICATIVA": justificativa,
-        "DATA": str(data_selecionada)
+        "DATA": str(data_selecionada),
+        "USUARIO": usuario
     }).execute()
     
     return res
     
-def inserir_registro_em_massa(df, tipo):
+def inserir_registro_em_massa(df, tipo, usuario):
     """
     Insere vários registros no Supabase vindos de um DataFrame do Excel.
     
@@ -270,7 +272,8 @@ def inserir_registro_em_massa(df, tipo):
             "NUMERO_DOC": str(row["Numero do documento"]),
             "TIPO_DOC": tipo,
             "JUSTIFICATIVA": row["Justificativa"],
-            "DATA": str(row["Data"])  # garante formato serializável
+            "DATA": str(row["Data"]),  # garante formato serializável
+            "USUARIO": usuario
         })
 
     # Enviar todos de uma vez (mais rápido que um por um)
@@ -356,7 +359,8 @@ if st.session_state.pagina == "CadastrarManual":
     "</h1>",
     unsafe_allow_html=True
 )
-    
+    st.write("👤 Usuário logado:", st.session_state.get("user_name"))
+
     ############################################
 
     st.markdown(
@@ -412,7 +416,8 @@ if st.session_state.pagina == "CadastrarManual":
                         numero=numero,
                         tipo=tipo,
                         justificativa=justificativa,
-                        data_selecionada=data_selecionada
+                        data_selecionada=data_selecionada,
+                        usuario=st.session_state.get("user_name", "desconhecido")
                     )
                     novo_id = res.data[0]["ID"]
 
