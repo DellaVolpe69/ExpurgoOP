@@ -547,8 +547,8 @@ if st.session_state.pagina == "CadastrarEmMassa":
 
                             # Upload
                             meu_minio.upload(
-                                object_name=nome_minio,
-                                bucket_name="teste",
+                                object_name="ExpurgosOP/"+ nome_minio,
+                                bucket_name="formularios",
                                 file_path=temp_path
                             )
 
