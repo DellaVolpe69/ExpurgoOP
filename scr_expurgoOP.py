@@ -660,25 +660,24 @@ elif st.session_state.pagina == "Editar":
 
         registro = df[df["ID"] == id_registro].iloc[0]
         
-        anexos = meu_minio.listar_anexos(bucket_name="formularios",id_registro=f"ExpurgosOP/{id_registro}")
+        prefixo = f"ExpurgosOP/{id_registro}"
+        
+        anexos = meu_minio.listar_anexos("formularios", prefixo)
         
         st.subheader("📎 Anexos deste registro")
 
         if anexos:
-            for nome_anexo in anexos:
-                st.write("➡️", nome_anexo)
+            for caminho_completo in anexos:
+                nome = caminho_completo.split("/")[-1]  # extraindo só "123_1.pdf"
+
+                st.write("➡️", nome)
 
                 data = meu_minio.manager.client.get_object(
                     "formularios",
-                    f"ExpurgosOP/{nome_anexo}"
+                    caminho_completo
                 ).read()
 
-                st.download_button(
-                    label="Baixar",
-                    data=data,
-                    file_name=nome_anexo,
-                    mime="application/octet-stream"
-                )
+                st.download_button("Baixar", data, file_name=nome)
         else:
             st.info("Nenhum anexo encontrado para este registro.")
             
