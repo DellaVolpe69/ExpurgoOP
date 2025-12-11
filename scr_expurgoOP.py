@@ -17,8 +17,6 @@ import streamlit.components.v1 as components
 import getpass
 from io import BytesIO
 
-import sys
-
 # --- LINK DIRETO DA IMAGEM NO GITHUB ---
 url_imagem = "https://raw.githubusercontent.com/DellaVolpe69/Images/main/AppBackground02.png"
 url_logo = "https://raw.githubusercontent.com/DellaVolpe69/Images/main/DellaVolpeLogoBranco.png"
