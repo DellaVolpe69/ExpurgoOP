@@ -660,7 +660,7 @@ elif st.session_state.pagina == "Editar":
 
         registro = df[df["ID"] == id_registro].iloc[0]
         
-        anexos = meu_minio.listar_anexos("teste", id_registro)
+        anexos = meu_minio.listar_anexos(bucket_name="formularios",id_registro=f"ExpurgosOP/{id_registro}")
         
         st.subheader("📎 Anexos deste registro")
 
