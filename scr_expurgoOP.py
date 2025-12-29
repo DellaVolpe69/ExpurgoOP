@@ -701,20 +701,6 @@ elif st.session_state.pagina == "Editar":
         
         st.subheader("📎 Anexos deste registro")
 
-        st.markdown(
-        """
-        <style>
-        div.stDownloadButton > button {
-            color: black;              /* cor do texto */
-            background-color: #1f77b4; /* fundo do botão */
-            border-radius: 8px;
-            font-weight: bold;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-        )
-
         if anexos:
             for caminho_completo in anexos:
                 nome = caminho_completo.split("/")[-1]  # extraindo só "123_1.pdf"
@@ -725,6 +711,20 @@ elif st.session_state.pagina == "Editar":
                     "formularios",
                     caminho_completo
                 ).read()
+
+                st.markdown(
+                """
+                <style>
+                div.stDownloadButton > button {
+                    color: black;              /* cor do texto */
+                    background-color: #1f77b4; /* fundo do botão */
+                    border-radius: 8px;
+                    font-weight: bold;
+                }
+                </style>
+                """,
+                unsafe_allow_html=True
+                )
 
                 st.download_button("Baixar", data, file_name=nome)
         else:
