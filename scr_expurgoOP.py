@@ -486,6 +486,20 @@ if st.session_state.pagina == "CadastrarEmMassa":
     "</h1>",
     unsafe_allow_html=True
     )
+    
+    st.markdown(
+    """
+    <style>
+    div.stDownloadButton > button {
+        color: black;              /* cor do texto */
+        background-color: #1f77b4; /* fundo do botão */
+        border-radius: 8px;
+        font-weight: bold;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+    )
         
     modelo_excel = gerar_modelo_excel()
     st.download_button(
