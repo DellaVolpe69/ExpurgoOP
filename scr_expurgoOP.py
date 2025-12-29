@@ -500,6 +500,16 @@ if st.session_state.pagina == "CadastrarEmMassa":
     #anexo_massa = st.file_uploader("Anexo", type=["pdf", "docx", "xlsx", "jpg", "png"], key="anexo_massa")
     arquivo_excel = st.file_uploader("Selecione o arquivo Excel", type=["xlsx"], key="excel_massa")
     
+    st.markdown("""
+        <style>
+        /* Texto do label do file_uploader */
+        div[data-testid="stFileUploader"] div {
+            color: #EDEBE6 !important;
+            font-weight: 600;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+    
     uploaded_files = st.file_uploader("Anexos", accept_multiple_files=True)
 
     ###########################################
