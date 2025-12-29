@@ -698,7 +698,17 @@ elif st.session_state.pagina == "Editar":
         prefixo = f"ExpurgosOP/{id_registro}"
         
         anexos = meu_minio.listar_anexos("formularios", prefixo)
-        
+
+        st.markdown("""
+        <style>
+        /* Estiliza TODOS os st.subheader */
+        div[data-testid="stSubheader"] {
+            color: #EDEBE6;
+            font-weight: 600;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+       
         st.subheader("📎 Anexos deste registro")
 
         if anexos:
