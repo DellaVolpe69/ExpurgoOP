@@ -751,6 +751,20 @@ elif st.session_state.pagina == "Editar":
                     else None)
             )
 
+            st.markdown(
+            """
+            <style>
+            div.stDownloadButton > button {
+                color: black;              /* cor do texto */
+                background-color: #FF8C00; /* fundo do botão */
+                border-radius: 8px;
+                font-weight: bold;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True
+            )
+
             if st.button("Salvar Alterações"):
                 existe = verificar_existencia(
                     novo_numero_doc,
