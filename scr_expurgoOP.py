@@ -698,16 +698,6 @@ elif st.session_state.pagina == "Editar":
         prefixo = f"ExpurgosOP/{id_registro}"
         
         anexos = meu_minio.listar_anexos("formularios", prefixo)
-
-        st.markdown("""
-        <style>
-        /* Estiliza TODOS os st.subheader */
-        div[data-testid="stSubheader"] {
-            color: #EDEBE6;
-            font-weight: 600;
-        }
-        </style>
-        """, unsafe_allow_html=True)
        
         st.subheader("📎 Anexos deste registro")
 
@@ -721,20 +711,6 @@ elif st.session_state.pagina == "Editar":
                     "formularios",
                     caminho_completo
                 ).read()
-
-                st.markdown(
-                """
-                <style>
-                div.stDownloadButton > button {
-                    color: black;              /* cor do texto */
-                    background-color: #1f77b4; /* fundo do botão */
-                    border-radius: 8px;
-                    font-weight: bold;
-                }
-                </style>
-                """,
-                unsafe_allow_html=True
-                )
 
                 st.download_button("Baixar", data, file_name=nome)
         else:
