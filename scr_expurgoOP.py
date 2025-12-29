@@ -219,7 +219,7 @@ def rodape():
     """, unsafe_allow_html=True)
 
 ##################################################################
-################ FUNÇÕES DO FORMULÁRIO DE JANELAS ################
+##################### FUNÇÕES DO FORMULÁRIO ######################
 ##################################################################
 
 # Função para carregar dados
@@ -381,6 +381,17 @@ if st.session_state.pagina == "CadastrarManual":
     justificativa = st.text_area("Justificativa")
     ######### ANEXO #########
     #anexo = st.file_uploader("Anexo", type=["pdf", "docx", "xlsx", "jpg", "png"], key="anexo_manual")
+    
+    st.markdown("""
+        <style>
+        /* Texto do label do file_uploader */
+        div[data-testid="stFileUploader"] div {
+            color: #EDEBE6 !important;
+            font-weight: 600;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+    
     uploaded_files = st.file_uploader("Anexos", accept_multiple_files=True)
 
     # minio_client.put_object(
